@@ -1,4 +1,4 @@
-package com.framework.ioc;
+package ll.com.framework.ioc;
 
 import com.ll.domain.testPost.testPost.repository.TestPostRepository;
 import com.ll.domain.testPost.testPost.service.TestFacadePostService;
