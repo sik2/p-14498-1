@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
+import java.util.Arrays;
 
 public class ClsUtil {
 
@@ -38,5 +39,13 @@ public class ClsUtil {
         Constructor<T> constructor = getConstructor(cls, args);
 
         return constructor.getParameters();
+    }
+
+    public static String[] getParameterNames(String clsPath, Object[] args) {
+        return Arrays.stream(
+                        getParameters(loadClass(clsPath), args)
+                )
+                .map(Parameter::getName)
+                .toArray(String[]::new);
     }
 }
