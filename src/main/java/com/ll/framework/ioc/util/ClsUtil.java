@@ -3,6 +3,7 @@ package com.ll.framework.ioc.util;
 import lombok.SneakyThrows;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Parameter;
 
 public class ClsUtil {
 
@@ -28,4 +29,12 @@ public class ClsUtil {
     private static <T> Constructor<T>  getConstructor(Class<T> cls, Object[] args) {
         return (Constructor<T>) cls.getDeclaredConstructors()[0];
     }
+
+    public static Parameter[] getParameters(String clsPath, Object[] args) {
+        Constructor constructor = getConstructor(loadClass(clsPath), args);
+
+        return constructor.getParameters();
+    }
+
+
 }
